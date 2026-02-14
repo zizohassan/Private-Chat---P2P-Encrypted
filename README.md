@@ -1,5 +1,7 @@
 # Private Chat - P2P Encrypted Messenger
 
+<img width="484" height="912" alt="Screenshot 2026-02-14 at 5 27 15 PM" src="https://github.com/user-attachments/assets/bf78c018-b7e2-4b30-8bfd-53d380b3971b" />
+
 Truly serverless peer-to-peer chat with end-to-end encryption. No central server, no accounts, no tracking. Peers connect directly using WebRTC with manual code exchange.
 
 ## How It Works
