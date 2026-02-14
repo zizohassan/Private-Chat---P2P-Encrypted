@@ -1,0 +1,182 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.privatechat.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Internet for WebRTC STUN servers -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:5:5-67
+12-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:5:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:6:5-79
+13-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:6:22-76
+14
+15    <!-- Microphone for voice calls -->
+16    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+16-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:9:5-71
+16-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:9:22-68
+17    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+17-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:10:5-80
+17-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:10:22-77
+18
+19    <!-- File access for file sharing -->
+20    <uses-permission
+20-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:13:5-14:38
+21        android:name="android.permission.READ_EXTERNAL_STORAGE"
+21-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:13:22-77
+22        android:maxSdkVersion="32" />
+22-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:14:9-35
+23    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+23-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:15:5-76
+23-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:15:22-73
+24    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+24-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:16:5-75
+24-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:16:22-72
+25    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+25-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:17:5-75
+25-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:17:22-72
+26
+27    <!-- Camera permission (WebRTC may request it) -->
+28    <uses-permission android:name="android.permission.CAMERA" />
+28-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:20:5-65
+28-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:20:22-62
+29
+30    <uses-feature
+30-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:22:5-85
+31        android:name="android.hardware.camera"
+31-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:22:19-57
+32        android:required="false" />
+32-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:22:58-82
+33    <uses-feature
+33-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:23:5-89
+34        android:name="android.hardware.microphone"
+34-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:23:19-61
+35        android:required="false" />
+35-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:23:62-86
+36
+37    <permission
+37-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+38        android:name="com.privatechat.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+38-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+39        android:protectionLevel="signature" />
+39-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+40
+41    <uses-permission android:name="com.privatechat.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+41-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+41-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+42
+43    <application
+43-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:25:5-44:19
+44        android:allowBackup="false"
+44-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:26:9-36
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.13.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/1d791aa533fe78b205e5114e4cec1859/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+46        android:debuggable="true"
+47        android:extractNativeLibs="false"
+48        android:icon="@mipmap/ic_launcher"
+48-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:27:9-43
+49        android:label="Private Chat"
+49-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:28:9-37
+50        android:networkSecurityConfig="@xml/network_security_config"
+50-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:32:9-69
+51        android:supportsRtl="true"
+51-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:29:9-35
+52        android:theme="@style/AppTheme"
+52-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:30:9-40
+53        android:usesCleartextTraffic="false" >
+53-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:31:9-45
+54        <activity
+54-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:34:9-43:20
+55            android:name="com.privatechat.app.MainActivity"
+55-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:35:13-41
+56            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+56-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:37:13-83
+57            android:exported="true"
+57-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:36:13-36
+58            android:windowSoftInputMode="adjustResize" >
+58-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:38:13-55
+59            <intent-filter>
+59-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:39:13-42:29
+60                <action android:name="android.intent.action.MAIN" />
+60-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:40:17-69
+60-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:40:25-66
+61
+62                <category android:name="android.intent.category.LAUNCHER" />
+62-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:41:17-77
+62-->/Users/abdelaziz/Desktop/privateChat/android/app/src/main/AndroidManifest.xml:41:27-74
+63            </intent-filter>
+64        </activity>
+65
+66        <provider
+66-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+67            android:name="androidx.startup.InitializationProvider"
+67-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+68            android:authorities="com.privatechat.app.androidx-startup"
+68-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+69            android:exported="false" >
+69-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+70            <meta-data
+70-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+71-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+72                android:value="androidx.startup" />
+72-->[androidx.emoji2:emoji2:1.3.0] /Users/abdelaziz/.gradle/caches/8.14/transforms/83c65828007946cbf1559977aed52a13/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+73            <meta-data
+73-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/abdelaziz/.gradle/caches/8.14/transforms/4eaec80fe496717808407f6a2075745b/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+74                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+74-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/abdelaziz/.gradle/caches/8.14/transforms/4eaec80fe496717808407f6a2075745b/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+75                android:value="androidx.startup" />
+75-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/abdelaziz/.gradle/caches/8.14/transforms/4eaec80fe496717808407f6a2075745b/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+76            <meta-data
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+77                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+78                android:value="androidx.startup" />
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+79        </provider>
+80
+81        <receiver
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+82            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+83            android:directBootAware="false"
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+84            android:enabled="true"
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+85            android:exported="true"
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+86            android:permission="android.permission.DUMP" >
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+88                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+91                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+94                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+97                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/abdelaziz/.gradle/caches/8.14/transforms/ffc899fc5ca7f0ff2d05ff92188e7e45/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+98            </intent-filter>
+99        </receiver>
+100    </application>
+101
+102</manifest>

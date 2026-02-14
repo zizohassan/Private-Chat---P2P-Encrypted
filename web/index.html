@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ========== WELCOME SCREEN ========== -->
+    <div id="welcome-screen" class="screen active">
+        <div class="welcome-container">
+            <div class="app-logo">&#128274;</div>
+            <h1 class="app-title">Private Chat</h1>
+            <p class="app-subtitle">
+                Peer-to-peer encrypted messaging.<br>
+                No servers. No accounts. No tracking.<br>
+                Just you and your peer.
+            </p>
+
+            <div class="name-input-group">
+                <label for="display-name">Your display name</label>
+                <input type="text" id="display-name" placeholder="Enter your name" maxlength="30" autocomplete="off">
+            </div>
+
+            <div class="welcome-buttons">
+                <button id="btn-create-invite" class="btn btn-primary">
+                    &#9889; Create Invite
+                </button>
+                <button id="btn-join-peer" class="btn btn-secondary">
+                    &#128279; Join with Code
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CONNECT SCREEN ========== -->
+    <div id="connect-screen" class="screen">
+        <div class="connect-container">
+            <div class="connect-header">
+                <h2>Establish Connection</h2>
+                <p>Exchange codes with your peer to connect directly</p>
+            </div>
+
+            <!-- INITIATOR: Show generated offer code -->
+            <div id="offer-section" class="section hidden">
+                <h3><span class="step-number">1</span> Send this invite code to your peer</h3>
+                <textarea id="offer-code" class="code-area" readonly></textarea>
+                <div class="code-actions">
+                    <button class="btn btn-small btn-primary btn-copy" data-target="offer-code">Copy Code</button>
+                </div>
+            </div>
+
+            <!-- INITIATOR: Enter answer from peer -->
+            <div id="answer-input-section" class="section hidden">
+                <h3><span class="step-number">2</span> Paste your peer's answer code</h3>
+                <textarea id="answer-input" class="code-area" placeholder="Paste the answer code here..."></textarea>
+                <div class="code-actions">
+                    <button id="btn-submit-answer" class="btn btn-small btn-primary">Connect</button>
+                </div>
+            </div>
+
+            <!-- RESPONDER: Enter invite code -->
+            <div id="join-section" class="section hidden">
+                <h3><span class="step-number">1</span> Paste the invite code</h3>
+                <textarea id="offer-input" class="code-area" placeholder="Paste the invite code here..."></textarea>
+                <div class="code-actions">
+                    <button id="btn-submit-offer" class="btn btn-small btn-primary">Generate Answer</button>
+                </div>
+            </div>
+
+            <!-- RESPONDER: Show generated answer code -->
+            <div id="answer-output-section" class="section hidden">
+                <h3><span class="step-number">2</span> Send this answer code back to your peer</h3>
+                <textarea id="answer-code" class="code-area" readonly></textarea>
+                <div class="code-actions">
+                    <button class="btn btn-small btn-primary btn-copy" data-target="answer-code">Copy Code</button>
+                </div>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center;">
+                    Waiting for peer to enter this code...
+                </p>
+            </div>
+
+            <!-- Connecting status -->
+            <div id="connecting-status" class="connecting-status hidden">
+                <div class="spinner"></div>
+                <p>Establishing secure connection...</p>
+            </div>
+
+            <!-- Error message -->
+            <div id="error-message" class="error-message hidden"></div>
+
+            <!-- Back button -->
+            <div style="text-align: center; margin-top: 16px;">
+                <button id="btn-start-over" class="btn btn-small btn-secondary">&#8592; Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CHAT SCREEN ========== -->
+    <div id="chat-screen" class="screen">
+
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="peer-avatar-wrapper">
+                <div class="peer-avatar" id="peer-avatar">P</div>
+                <span id="online-dot" class="online-dot offline"></span>
+            </div>
+            <div class="peer-info">
+                <div class="peer-name-row">
+                    <span id="peer-name">Peer</span>
+                    <span id="online-status-text" class="online-status-text offline">Offline</span>
+                </div>
+                <div id="connection-status" class="connection-status">Connecting...</div>
+            </div>
+            <div class="chat-header-actions">
+                <button id="btn-voice-call" class="btn-icon" title="Voice Call">&#128222;</button>
+                <button id="btn-disconnect" class="btn-icon" title="Disconnect" style="color: var(--danger);">&#10005;</button>
+            </div>
+        </div>
+
+        <!-- Encryption fingerprints (collapsible) -->
+        <div id="fingerprints" title="Click to verify encryption keys"></div>
+
+        <!-- Incoming call overlay -->
+        <div id="incoming-call" class="call-overlay hidden">
+            <div class="call-info">
+                <span>Incoming voice call...</span>
+            </div>
+            <div class="call-buttons">
+                <button id="btn-accept-call" class="call-btn accept" title="Accept">&#128222;</button>
+                <button id="btn-reject-call" class="call-btn reject" title="Reject">&#10005;</button>
+            </div>
+        </div>
+
+        <!-- Active call overlay -->
+        <div id="active-call" class="call-overlay hidden">
+            <div class="call-info">
+                <span>Voice Call</span>
+                <span id="call-timer">00:00</span>
+            </div>
+            <div class="call-buttons">
+                <button id="btn-mute" class="call-btn mute" title="Mute">&#128263;</button>
+                <button id="btn-end-call" class="call-btn end" title="End Call">&#10005;</button>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="messages-container" class="messages-area"></div>
+
+        <!-- Typing indicator -->
+        <div id="typing-indicator" class="typing-indicator hidden">
+            Peer is typing...
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-area">
+            <button id="btn-attach" class="btn-icon" title="Send File">&#128206;</button>
+            <input type="file" id="file-input" multiple>
+            <textarea id="message-input" placeholder="Type a message..." rows="1"></textarea>
+            <button id="btn-send" title="Send">&#10148;</button>
+        </div>
+    </div>
+
+    <!-- Image fullscreen overlay -->
+    <div id="image-overlay" class="image-overlay hidden">
+        <img id="fullscreen-image" src="" alt="Full size image">
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast"></div>
+
+    <!-- Scripts (order matters - dependencies first) -->
+    <script src="js/crypto.js"></script>
+    <script src="js/connection.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/file-transfer.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
